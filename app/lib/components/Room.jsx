@@ -74,6 +74,7 @@ class Room extends React.Component
 						className={classnames('me-container', {
 							'active-speaker' : amActiveSpeaker
 						})}
+						id="user-preview"
 					>
 						<Me />
 					</div>
@@ -109,6 +110,20 @@ class Room extends React.Component
 									: roomClient.muteAudio();
 							}}
 						/>
+						<div
+							className={classnames('button', 'mini-view', {
+								on : me.viewMinimized
+							})}
+							data-tip={'Minimze/maximize view'}
+							onClick={() =>
+							{
+								me.viewMinimized //= !me.viewMinimized
+									? roomClient.maximizeView()
+									: roomClient.minimizeView();
+								
+								document.getElementById("user-preview").style.display = me.viewMinimized ? "block" : "none"
+							}}
+						/>
 
 						<div
 							className={classnames('button', 'restart-ice', {
@@ -117,7 +132,7 @@ class Room extends React.Component
 							data-tip='Restart ICE'
 							onClick={() => roomClient.restartIce()}
 						/>
-					</div>
+					</div>						
 
 					<Stats />
 

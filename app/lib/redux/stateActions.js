@@ -94,6 +94,14 @@ export const setAudioMutedState = (enabled) =>
 	};
 };
 
+export const setViewMinimizedState = (enabled) =>
+{
+	return {
+		type    : 'SET_VIEW_MINIMIZED_STATE',
+		payload : { enabled }
+	};
+};
+
 export const setRestartIceInProgress = (flag) =>
 {
 	return {

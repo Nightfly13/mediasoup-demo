@@ -1541,6 +1541,22 @@ export default class RoomClient
 			stateActions.setAudioMutedState(false));
 	}
 
+	async minimizeView()
+	{
+		logger.debug('minimizeView()');
+
+		store.dispatch(
+			stateActions.setViewMinimizedState(true));
+	}
+
+	async maximizeView()
+	{
+		logger.debug('maximizeView()');
+
+		store.dispatch(
+			stateActions.setViewMinimizedState(false));
+	}
+
 	async restartIce()
 	{
 		logger.debug('restartIce()');

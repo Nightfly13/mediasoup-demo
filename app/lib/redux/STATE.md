@@ -24,6 +24,7 @@
     audioOnly            : false,
     audioOnlyInProgress  : false,
     audioMuted           : false,
+    viewMinimized        : false,
     restartIceInProgress : false
   },
   producers :
