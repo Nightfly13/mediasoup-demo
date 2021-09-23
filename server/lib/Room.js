@@ -777,15 +777,17 @@ class Room extends EventEmitter
 			// 	producer.id, volume);
 
 			// Notify all Peers.
-			for (const peer of this._getJoinedPeers())
-			{
-				peer.notify(
-					'activeSpeaker',
-					{
-						peerId : producer.appData.peerId,
-						volume : volume
-					})
-					.catch(() => {});
+			if (this._getJoinedPeers().length > 3) {
+				for (const peer of this._getJoinedPeers())
+				{
+					peer.notify(
+						'activeSpeaker',
+						{
+							peerId : producer.appData.peerId,
+							volume : volume
+						})
+						.catch(() => {});
+				}
 			}
 		});
 
