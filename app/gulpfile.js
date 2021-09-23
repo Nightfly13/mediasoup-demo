@@ -326,10 +326,7 @@ gulp.task('devel:tcp', gulp.series(
 					open      : 'external',
 					host      : config.domain,
 					startPath : '/?roomId=devel:tcp&info=true&_throttleSecret=foo&forceTcp=true&consume=false',
-					server    :
-					{
-						baseDir : OUTPUT_DIR
-					},
+					server    : OUTPUT_DIR,
 					https     : config.https.tls,
 					ghostMode : false,
 					files     : path.join(OUTPUT_DIR, '**', '*')
