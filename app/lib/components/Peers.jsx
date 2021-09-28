@@ -9,7 +9,7 @@ import Peer from './Peer';
 const Peers = ({ peers, activeSpeakerId }) =>
 {
 	return (
-		<div data-component='Peers'>
+		<div data-component='Peers' className={"numOfPeers"+peers.length}>
 			{
 				peers.map((peer) =>
 				{
