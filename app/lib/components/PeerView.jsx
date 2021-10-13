@@ -102,12 +102,15 @@ export default class PeerView extends React.Component
 					<div className='icons'>
 						<div
 							className={classnames('icon', 'info', { on: showInfo })}
-							onClick={() => this.setState({ showInfo: !showInfo })}
-						/>
-
-						<div
-							className={classnames('icon', 'stats')}
-							onClick={() => onStatsClick(peer.id)}
+							onClick={() => 
+								{	
+									let fullscreenDiv = document.getElementById("fullscreenView")
+									let video = document.getElementById("fullscreenVideo")
+									console.log(this)
+									let stream = new MediaStream([this._videoTrack])
+									video.srcObject = stream
+									fullscreenDiv.style.display="block"
+								}}
 						/>
 					</div>
 
