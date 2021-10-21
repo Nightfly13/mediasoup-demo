@@ -109,6 +109,7 @@ export default class PeerView extends React.Component
 								console.log(this);
 								let stream = new MediaStream([ this._videoTrack ]);
 								video.srcObject = stream;
+								video.autoPlay = true;
 								fullscreenDiv.style.display='block';
 							}}
 						/>
