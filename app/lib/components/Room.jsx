@@ -84,19 +84,7 @@ class Room extends React.Component {
           </div>
 
           <div className="sidebar">
-            <div
-              className={classnames("button", "hide-videos", {
-                on: me.audioOnly,
-                disabled: me.audioOnlyInProgress,
-              })}
-              data-tip={"Show/hide participants' video"}
-              onClick={() => {
-                me.audioOnly
-                  ? roomClient.disableAudioOnly()
-                  : roomClient.enableAudioOnly();
-              }}
-            />
-
+            
             <div
               className={classnames("button", "mute-audio", {
                 on: me.audioMuted,
