@@ -122,14 +122,6 @@ class Room extends React.Component {
                   me.viewMinimized ? "block" : "none";
               }}
             />
-
-            <div
-              className={classnames("button", "restart-ice", {
-                disabled: me.restartIceInProgress,
-              })}
-              data-tip="Restart ICE"
-              onClick={() => roomClient.restartIce()}
-            />
           </div>
 
           <Stats />

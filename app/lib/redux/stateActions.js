@@ -102,14 +102,6 @@ export const setViewMinimizedState = (enabled) =>
 	};
 };
 
-export const setRestartIceInProgress = (flag) =>
-{
-	return {
-		type    : 'SET_RESTART_ICE_IN_PROGRESS',
-		payload : { flag }
-	};
-};
-
 export const addProducer = (producer) =>
 {
 	return {

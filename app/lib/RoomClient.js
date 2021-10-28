@@ -1557,52 +1557,6 @@ export default class RoomClient
 			stateActions.setViewMinimizedState(false));
 	}
 
-	async restartIce()
-	{
-		logger.debug('restartIce()');
-
-		store.dispatch(
-			stateActions.setRestartIceInProgress(true));
-
-		try
-		{
-			if (this._sendTransport)
-			{
-				const iceParameters = await this._protoo.request(
-					'restartIce',
-					{ transportId: this._sendTransport.id });
-
-				await this._sendTransport.restartIce({ iceParameters });
-			}
-
-			if (this._recvTransport)
-			{
-				const iceParameters = await this._protoo.request(
-					'restartIce',
-					{ transportId: this._recvTransport.id });
-
-				await this._recvTransport.restartIce({ iceParameters });
-			}
-
-			store.dispatch(requestActions.notify(
-				{
-					text : 'ICE restarted'
-				}));
-		}
-		catch (error)
-		{
-			logger.error('restartIce() | failed:%o', error);
-
-			store.dispatch(requestActions.notify(
-				{
-					type : 'error',
-					text : `ICE restart failed: ${error}`
-				}));
-		}
-
-		store.dispatch(
-			stateActions.setRestartIceInProgress(false));
-	}
 
 	async setMaxSendingSpatialLayer(spatialLayer)
 	{

@@ -1016,21 +1016,6 @@ class Room extends EventEmitter
 				break;
 			}
 
-			case 'restartIce':
-			{
-				const { transportId } = request.data;
-				const transport = peer.data.transports.get(transportId);
-
-				if (!transport)
-					throw new Error(`transport with id "${transportId}" not found`);
-
-				const iceParameters = await transport.restartIce();
-
-				accept(iceParameters);
-
-				break;
-			}
-
 			case 'produce':
 			{
 				// Ensure the Peer is joined.

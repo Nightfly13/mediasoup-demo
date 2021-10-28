@@ -12,8 +12,7 @@ const initialState =
 	audioOnly            : false,
 	audioOnlyInProgress  : false,
 	audioMuted           : false,
-	viewMinimized		 : false,
-	restartIceInProgress : false
+	viewMinimized		 : false
 };
 
 const me = (state = initialState, action) =>
@@ -33,8 +32,7 @@ const me = (state = initialState, action) =>
 					audioOnly            : false,
 					audioOnlyInProgress  : false,
 					audioMuted           : false,
-					viewMinimized		 : false,
-					restartIceInProgress : false
+					viewMinimized		 : false
 				};
 			}
 			else
@@ -115,13 +113,6 @@ const me = (state = initialState, action) =>
 			const { enabled } = action.payload;
 
 			return { ...state, viewMinimized: enabled };
-		}
-
-		case 'SET_RESTART_ICE_IN_PROGRESS':
-		{
-			const { flag } = action.payload;
-
-			return { ...state, restartIceInProgress: flag };
 		}
 
 		default:
