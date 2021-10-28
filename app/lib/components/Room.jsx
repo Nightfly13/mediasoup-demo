@@ -38,35 +38,6 @@ class Room extends React.Component {
             </div>
 			<video id="fullscreenVideo"/>
           </div>
-          <div className="room-link-wrapper">
-            <div className="room-link">
-              <a
-                className="link"
-                href={room.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(event) => {
-                  // If this is a 'Open in new window/tab' don't prevent
-                  // click default action.
-                  if (
-                    event.ctrlKey ||
-                    event.shiftKey ||
-                    event.metaKey ||
-                    // Middle click (IE > 9 and everyone else).
-                    (event.button && event.button === 1)
-                  ) {
-                    return;
-                  }
-
-                  event.preventDefault();
-
-                  clipboardCopy(room.url).then(onRoomLinkCopy);
-                }}
-              >
-                invitation link
-              </a>
-            </div>
-          </div>
 
           <Peers />
 
@@ -84,7 +55,7 @@ class Room extends React.Component {
           </div>
 
           <div className="sidebar">
-            
+
             <div
               className={classnames("button", "mute-audio", {
                 on: me.audioMuted,
