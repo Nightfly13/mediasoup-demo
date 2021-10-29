@@ -9,6 +9,7 @@ import * as faceapi from 'face-api.js';
 import Logger from '../Logger';
 import * as appPropTypes from './appPropTypes';
 import EditableInput from './EditableInput';
+import {isMobileOnly, isIOS} from 'react-device-detect'
 
 const logger = new Logger('PeerView');
 
@@ -112,6 +113,11 @@ export default class PeerView extends React.Component
 								video.autoPlay = true;
 								video.play();
 								fullscreenDiv.style.display='block';
+								if (isIOS && isMobileOnly) {
+									setTimeout(()=>{
+										fullscreenDiv.style.display='none';
+									},500)
+								}
 							}}
 						/>
 					</div>
