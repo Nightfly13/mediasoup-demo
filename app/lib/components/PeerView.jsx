@@ -113,10 +113,13 @@ export default class PeerView extends React.Component
 								video.autoPlay = true;
 								video.play();
 								fullscreenDiv.style.display='block';
+								console.log('-P-E-N-I-S------------------------------')
+								console.log(isIOS)
+								console.log(isMobileOnly)
 								if (isIOS && isMobileOnly) {
-									setTimeout(()=>{
+									video.addEventListener("webkitendfullscreen", function(){
 										fullscreenDiv.style.display='none';
-									},500)
+										}, false);
 								}
 							}}
 						/>
